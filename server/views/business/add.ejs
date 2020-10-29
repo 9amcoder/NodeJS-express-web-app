@@ -1,0 +1,52 @@
+<%- include ../partials/header.ejs %>
+
+<%- include ../partials/main_nav.ejs %>
+
+<!-- Add Page Content -->
+<div id="main-body" class="container-fluid" style="max-width: 100%; text-align: center; margin-bottom: 75px; width: 100%; margin-left: 10%;">    
+    <div class="row">
+        <div class="offset-md-3 col-md-4">
+            <h1 class="display-4" style="text-align: center;"><%= title %></h1>
+
+            <form class="form" method="POST">
+                <div class="form-grouop">
+                    <label for="nameTextField">Contact Name</label>
+                    <input type="text" class="form-control"
+                    id="nameTextField"
+                    placeholder="Contact Name"
+                    name="name" required>
+                </div>
+
+                <div class="form-grouop">
+                    <label for="numberTextField">Contact Number</label>
+                    <input type="text" class="form-control"
+                    id="numberTextField"
+                    placeholder="Contact Number"
+                    name="number" required>
+                </div>
+
+                <div class="form-grouop">
+                    <label for="emailTextField">Contact Email</label>
+                    <input type="text" class="form-control"
+                    id="emailTextField"
+                    placeholder="Contact Email"
+                    name="email" required>
+                </div>
+
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-edit"></i> Submit</button>
+
+                    <a href="/contact-list" class="btn btn-warning">
+                        <i class="fas fa-undo"></i> Cancel</a>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<%- include ../partials/bottom_nav.ejs %>  
+
+<%- include ../partials/footer.ejs %>

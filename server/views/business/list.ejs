@@ -1,0 +1,66 @@
+<%- include ../partials/header.ejs %>
+
+<%- include ../partials/main_nav.ejs %>
+  
+
+<!-- Contact List Display -->
+<div id="main-body" class="container-fluid" style="max-width: 100%; text-align: center; margin-bottom: 75px; margin-left: 25%;">
+<div class="row">
+    <div class="col-md-offset-3 col-md-6">
+        <h1 class="display-4" style="text-align: center;"><%= title %></h1>
+
+        <% if(typeof displayName == 'string' && displayName) { %>
+        <a href="/contact-list/add" class="btn btn-primary" role="button">
+        <i class="fas fa-plus-circle"></i> Add a Contact</a>
+        <% } %>
+        <br>
+        <br>
+        <table class="table table-bordered table-striper table-hover">
+            <!-- Header Row-->
+            <tr>
+                    <th class="text-center">Contact Name</th>
+                    <th class="text-center">Contact Number</th>
+                    <th class="text-center">Contact Email Address</th>
+                <% if(typeof displayName == 'string' && displayName) { %>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                <% } %>
+            </tr>
+
+            <!-- Repeatable Template Row -->
+
+            <% for(let count = 0; count < BusinessList.length; count++) { %>
+                <tr>
+                    <td class="text-center"><%= BusinessList[count].name %></td>
+                    <td class="text-center"><%= BusinessList[count].number %></td>
+                    <td class="text-center"><%= BusinessList[count].email %></td>
+                
+                <% if(typeof displayName == 'string' && displayName) { %>
+
+                    <td class="text-center">
+                        <a href="/contact-list/edit/<%= BusinessList[count]._id %>" class="btn btn-primary">
+                        <i class="fas fa-pencil-alt"></i> Update</a>
+                    </td>
+                    <td class="text-center">
+                        <a href="/contact-list/delete/<%= BusinessList[count]._id %>" class="btn btn-danger">
+                        <i class="fas fa-trash-alt"></i> Delete</a>
+                    </td>
+                    <% } %>
+                </tr>
+            <% } %>
+
+        </table>
+    </div>
+</div>
+</div>
+
+  
+<%- include ../partials/bottom_nav.ejs %>  
+
+<%- include ../partials/footer.ejs %>
+  
+
+
+
+
+
